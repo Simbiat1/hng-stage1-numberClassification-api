@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "axios": "^1.7.9",
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  },
+  "name": "hng-stage1-numberclassification-api",
+  "version": "1.0.0",
+  "description": "An API that takes a number and returns interesting mathematical properties about it alongside a fun fact",
+  "main": "index.js",
+  "devDependencies": {},
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Simbiat Jinadu",
+  "license": "ISC"
+}
