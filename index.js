@@ -11,11 +11,11 @@ const port = process.env.PORT || 3000;
 
 app.use(cors());
 
-app.get("/api/classify-number/:num", async(req, res) => {
-    const num = req.params.num;
-    const numApi = `${process.env.NUMBERS_API_URL}/${num}/math`;
+app.get("/api/classify-number", async(req, res) => {
+    const number = req.query.number;
+    const numApi = `${process.env.NUMBERS_API_URL}/${number}/math`;
 
-    if (isNaN(num)) {
+    if (isNaN(number)) {
         return res.status(400).json({
           number: "alphabet",
           error: true,
@@ -27,11 +27,11 @@ app.get("/api/classify-number/:num", async(req, res) => {
     const funFact = response.data;
 
     const results = {
-        number: num,
-        is_prime: property.isPrime(num),
-        is_perfect: property.isPerfect(num),
-        properties: [property.isArmstrong(Number(num)), property.getParity(num)].filter(Boolean), // filters boolean value null
-        digit_sum: property.sumOfDigits(num),
+        number: number,
+        is_prime: property.isPrime(number),
+        is_perfect: property.isPerfect(number),
+        properties: [property.isArmstrong(Number(number)), property.getParity(number)].filter(Boolean), // filters boolean value null
+        digit_sum: property.sumOfDigits(number),
         fun_fact: funFact
     };
     res.status(200).json(results);
