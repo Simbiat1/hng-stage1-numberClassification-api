@@ -32,7 +32,9 @@ export function isArmstrong(num) {
         sum += Math.pow(parseInt(numStr[i]), numLen);
     }
     // Checks if the sum equals the original number
-    return sum === num ? "armstrong" : "not an armstrong number"; 
+    if (sum === num) {
+        return "armstrong"; 
+      }
 }
 
 // checking parity of num
